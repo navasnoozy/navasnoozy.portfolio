@@ -1,0 +1,75 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Add this to your App.css */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Backdrop filter support */
+@supports (backdrop-filter: blur(10px)) {
+  .navbar-glass {
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .navbar-glass {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+  }
+}
+
+/* Smooth transitions */
+.navbar-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+.navbar-link:focus-visible {
+  outline: 2px solid #64ffda;
+  outline-offset: 2px;
+}
+
+/* Prevent layout shift */
+.navbar-spacer {
+  flex-shrink: 0;
+}
+
+/* Mobile drawer improvements */
+.mobile-drawer {
+  overscroll-behavior: contain;
+}
+
+/* Ensure proper z-index stacking */
+.navbar-container {
+  isolation: isolate;
+}
+
+/* Prevent text selection on navigation items */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
