@@ -1,4 +1,6 @@
 new/
+├─ .github/
+│  └─ copilot-instructions.md
 ├─ public/
 │  ├─ resume.pdf
 │  └─ vite.svg
@@ -55,8 +57,17 @@ new/
 │  │  │  └─ useTypingEffect.ts
 │  │  ├─ Navbar/
 │  │  │  └─ Navbar.tsx
-│  │  └─ ScrollIndicator/
-│  │     └─ ScrollIndicator.tsx
+│  │  ├─ ScrollIndicator/
+│  │  │  └─ ScrollIndicator.tsx
+│  │  └─ skills/
+│  │     ├─ AnimatedCounter.tsx
+│  │     ├─ SkillCategory.tsx
+│  │     ├─ SkillItem.tsx
+│  │     ├─ SkillProgressBar.tsx
+│  │     ├─ skillsData.ts
+│  │     ├─ SkillsGrid.tsx
+│  │     ├─ SkillsHero.tsx
+│  │     └─ SkillsStats.tsx
 │  ├─ hooks/
 │  ├─ layouts/
 │  │  └─ Layout.tsx
