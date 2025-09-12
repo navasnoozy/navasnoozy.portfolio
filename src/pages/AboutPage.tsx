@@ -1,4 +1,4 @@
-//src/pages/AboutPage.tsx
+
 
 
 const AboutPage = () => {
