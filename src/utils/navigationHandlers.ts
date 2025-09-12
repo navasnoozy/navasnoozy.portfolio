@@ -1,3 +1,5 @@
+//src/utils/navigationHandlers.ts
+
 export const createResumeHandler = () => {
   return () => {
     window.open('/resume.pdf', '_blank');

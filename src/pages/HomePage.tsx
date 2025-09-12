@@ -19,7 +19,7 @@ import { useTypingEffect } from '../components/homepage/useTypingEffect';
 import FloatingParticles from '../components/homepage/FloatingParticles';
 import { containerVariants } from '../components/homepage/homePageAnimations';
 import HeroSection from '../components/homepage/HeroSection';
-import ProfilePhoto from '../components/homepage/ProfilePhoto';
+import { ProfilePhoto } from '../components/shared';
 
 const HomePage: React.FC = () => {
   const theme = useTheme();

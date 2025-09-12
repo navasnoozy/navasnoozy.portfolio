@@ -1,38 +1,36 @@
 // src/pages/SkillsPage.tsx
-
-// src/pages/SkillsPage.tsx
 import React from 'react';
-import { Box, Container } from '@mui/material';
-import { motion } from 'framer-motion';
-import SkillsHero from '../components/skills/SkillsHero';
-import SkillsGrid from '../components/skills/SkillsGrid';
-import SkillsStats from '../components/skills/SkillsStats';
-import FloatingParticles from '../components/homepage/FloatingParticles';
+import AnimatedSection from '../components/shared/AnimatedSection/AnimatedSection';
+import SectionTitle from '../components/shared/SectionTitle/SectionTitle';
+import SkillsGrid from '../components/skills/SkillsGrid/SkillsGrid';
+import { fadeInUp } from '../components/shared/animations/sharedAnimations';
 
 const SkillsPage: React.FC = () => {
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        position: 'relative',
-        overflow: 'hidden',
-        pt: { xs: 8, md: 4 },
-      }}
-    >
-      <FloatingParticles />
-      
-      <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <SkillsHero />
-          <SkillsStats />
-          <SkillsGrid />
-        </motion.div>
-      </Container>
-    </Box>
+    <>
+      {/* Hero Section */}
+      <AnimatedSection 
+        variants={fadeInUp}
+        py={{ xs: 8, md: 12 }}
+        minHeight="50vh"
+        background="linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(20, 20, 30, 0.1) 100%)"
+      >
+        <SectionTitle
+          title="My Skills"
+          subtitle="A comprehensive overview of my technical expertise and the tools I use to bring ideas to life. From frontend frameworks to backend technologies, here's what I work with daily."
+          centerAlign={true}
+        />
+      </AnimatedSection>
+
+      {/* Skills Grid Section */}
+      <AnimatedSection 
+        variants={fadeInUp}
+        py={{ xs: 6, md: 10 }}
+        delay={0.3}
+      >
+        <SkillsGrid />
+      </AnimatedSection>
+    </>
   );
 };
 
