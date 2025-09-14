@@ -1,21 +1,20 @@
 // src/pages/ContactPage.tsx
-import React, { useState, useEffect } from 'react';
-import { Box, Grid, Typography, Container, IconButton, Fab } from '@mui/material';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import {
-  LocationOn,
-  KeyboardArrowUp,
-  WhatsApp,
   Email,
-  Phone,
+  KeyboardArrowUp,
+  LocationOn,
   Schedule,
-  TrendingUp,
+  Security,
   Speed,
-  Security
+  TrendingUp,
+  WhatsApp
 } from '@mui/icons-material';
-import { AnimatedSection, SectionTitle } from '../components/shared';
+import { Box, Container, Fab, Grid, IconButton, Typography } from '@mui/material';
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import { ContactForm, ContactInfo } from '../components/contact';
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../components/shared/sharedAnimations';
+import { AnimatedSection, SectionTitle } from '../components/shared';
+import { fadeInLeft, fadeInRight, fadeInUp, staggerContainer } from '../components/shared/sharedAnimations';
 
 const ContactPage: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);

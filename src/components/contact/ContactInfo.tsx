@@ -1,25 +1,22 @@
 // src/components/contact/ContactInfo.tsx
-import React, { useState } from 'react';
-import { Box, Typography, Link, Card, Divider, Tooltip, IconButton } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Email,
-  Phone,
-  LocationOn,
-  GitHub,
-  LinkedIn,
-  Twitter,
-  YouTube,
-  Instagram,
-  WhatsApp,
-  ContentCopy,
-  Schedule,
-  Language,
-  Work,
-  VideoCall,
-  MessageOutlined,
-  CheckCircle
+     CheckCircle,
+     ContentCopy,
+     Email,
+     GitHub,
+     Instagram,
+     LinkedIn,
+     MessageOutlined,
+     Phone,
+     Schedule,
+     Twitter,
+     VideoCall,
+     WhatsApp,
+     YouTube
 } from '@mui/icons-material';
+import { Box, Divider, IconButton, Link, Tooltip, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { AnimatedCard } from '../shared';
 
 interface ContactItemProps {
