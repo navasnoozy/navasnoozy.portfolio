@@ -1,4 +1,4 @@
-// src/components/about/AboutValues/AboutValues.tsx
+// src/components/about/AboutValues.tsx
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -10,8 +10,8 @@ import {
   TrendingUp,
   Verified,
 } from '@mui/icons-material';
-import AnimatedCard from '../../shared/AnimatedCard/AnimatedCard';
-import { staggerContainer } from '../../shared/animations/sharedAnimations';
+import { AnimatedCard, staggerContainer } from '../shared';
+
 
 interface Value {
   icon: React.ReactNode;

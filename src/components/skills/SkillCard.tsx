@@ -1,10 +1,10 @@
-// src/components/skills/SkillCard/SkillCard.tsx
+// src/components/skills/SkillCard.tsx
 import React from 'react';
 import { Box, Typography, LinearProgress } from '@mui/material';
 import { motion } from 'framer-motion';
-import AnimatedCard from '../../shared/AnimatedCard/AnimatedCard';
-import IconRenderer from '../../AnimatedBackground/IconRenderer';
-import type { IconType } from '../../AnimatedBackground/icons';
+import IconRenderer from '../AnimatedBackground/IconRenderer';
+import type { IconType } from '../AnimatedBackground/icons';
+import { AnimatedCard } from '../shared';
 
 interface SkillCardProps {
   name: string;

@@ -1,10 +1,10 @@
-// src/components/skills/SkillsGrid/SkillsGrid.tsx
+// src/components/skills/SkillsGrid.tsx
 import { Box, Chip, Grid, Tab, Tabs } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { skillsData } from '../../../data/skillsData';
-import { staggerContainer } from '../../shared/animations/sharedAnimations';
-import SkillCard from '../SkillCard/SkillCard';
+import { skillsData } from '../../data/skillsData';
+import { staggerContainer } from '../shared/sharedAnimations';
+import SkillCard from './SkillCard';
 
 const SkillsGrid: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -15,19 +15,21 @@ const SkillsGrid: React.FC = () => {
 
   const getFilteredSkills = () => {
     if (selectedCategory === 'all') {
-      return skillsData.flatMap(category => 
-        category.skills.map(skill => ({
+      return skillsData.flatMap((category) =>
+        category.skills.map((skill) => ({
           ...skill,
-          categoryData: category
+          categoryData: category,
         }))
       );
     }
-    
-    const category = skillsData.find(cat => cat.name === selectedCategory);
-    return category ? category.skills.map(skill => ({
-      ...skill,
-      categoryData: category
-    })) : [];
+
+    const category = skillsData.find((cat) => cat.name === selectedCategory);
+    return category
+      ? category.skills.map((skill) => ({
+          ...skill,
+          categoryData: category,
+        }))
+      : [];
   };
 
   const filteredSkills = getFilteredSkills();
@@ -44,7 +46,7 @@ const SkillsGrid: React.FC = () => {
             border: '1px solid rgba(255, 255, 255, 0.1)',
             p: 1,
             overflowX: 'auto',
-            maxWidth: '100%'
+            maxWidth: '100%',
           }}
         >
           <Tabs
@@ -56,7 +58,7 @@ const SkillsGrid: React.FC = () => {
               '& .MuiTabs-indicator': {
                 background: 'linear-gradient(90deg, #64ffda 0%, #a855f7 100%)',
                 height: 3,
-                borderRadius: 2
+                borderRadius: 2,
               },
               '& .MuiTab-root': {
                 color: 'rgba(255, 255, 255, 0.7)',
@@ -65,12 +67,12 @@ const SkillsGrid: React.FC = () => {
                 fontSize: { xs: '0.9rem', md: '1rem' },
                 minHeight: 48,
                 '&.Mui-selected': {
-                  color: '#64ffda'
+                  color: '#64ffda',
                 },
                 '&:hover': {
-                  color: 'rgba(255, 255, 255, 0.9)'
-                }
-              }
+                  color: 'rgba(255, 255, 255, 0.9)',
+                },
+              },
             }}
           >
             <Tab
@@ -79,14 +81,11 @@ const SkillsGrid: React.FC = () => {
                   label="All Skills"
                   size="small"
                   sx={{
-                    background: selectedCategory === 'all' 
-                      ? 'linear-gradient(90deg, #64ffda 0%, #a855f7 100%)' 
-                      : 'transparent',
+                    background:
+                      selectedCategory === 'all' ? 'linear-gradient(90deg, #64ffda 0%, #a855f7 100%)' : 'transparent',
                     color: selectedCategory === 'all' ? '#000' : 'rgba(255, 255, 255, 0.8)',
-                    border: selectedCategory === 'all' 
-                      ? 'none' 
-                      : '1px solid rgba(255, 255, 255, 0.2)',
-                    fontWeight: 600
+                    border: selectedCategory === 'all' ? 'none' : '1px solid rgba(255, 255, 255, 0.2)',
+                    fontWeight: 600,
                   }}
                 />
               }
@@ -100,16 +99,10 @@ const SkillsGrid: React.FC = () => {
                     label={category.name}
                     size="small"
                     sx={{
-                      background: selectedCategory === category.name 
-                        ? category.gradient 
-                        : 'transparent',
-                      color: selectedCategory === category.name 
-                        ? '#000' 
-                        : 'rgba(255, 255, 255, 0.8)',
-                      border: selectedCategory === category.name 
-                        ? 'none' 
-                        : '1px solid rgba(255, 255, 255, 0.2)',
-                      fontWeight: 600
+                      background: selectedCategory === category.name ? category.gradient : 'transparent',
+                      color: selectedCategory === category.name ? '#000' : 'rgba(255, 255, 255, 0.8)',
+                      border: selectedCategory === category.name ? 'none' : '1px solid rgba(255, 255, 255, 0.2)',
+                      fontWeight: 600,
                     }}
                   />
                 }
@@ -122,38 +115,32 @@ const SkillsGrid: React.FC = () => {
 
       {/* Skills Grid */}
       <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedCategory}
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-        >
-<Grid container spacing={{ xs: 2, md: 3 }}>
-  {filteredSkills.map((skill, index) => (
-    <Grid 
-      key={`${selectedCategory}-${skill.id}`}
-      size={{ xs: 12, sm: 6, md: 4, lg: 3 }}   // ✅ MUI v7 syntax
-    >
-      <motion.div
-        variants={{
-          hidden: { y: 50, opacity: 0 },
-          visible: { y: 0, opacity: 1 }
-        }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-      >
-        <SkillCard
-          name={skill.name}
-          level={skill.level}
-          icon={skill.icon}
-          category={skill.category}
-          description={skill.description}
-          delay={index * 0.1}
-        />
-      </motion.div>
-    </Grid>
-  ))}
-</Grid>
+        <motion.div key={selectedCategory} variants={staggerContainer} initial="hidden" animate="visible" exit="hidden">
+          <Grid container spacing={{ xs: 2, md: 3 }}>
+            {filteredSkills.map((skill, index) => (
+              <Grid
+                key={`${selectedCategory}-${skill.id}`}
+                size={{ xs: 12, sm: 6, md: 4, lg: 3 }} // ✅ MUI v7 syntax
+              >
+                <motion.div
+                  variants={{
+                    hidden: { y: 50, opacity: 0 },
+                    visible: { y: 0, opacity: 1 },
+                  }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <SkillCard
+                    name={skill.name}
+                    level={skill.level}
+                    icon={skill.icon}
+                    category={skill.category}
+                    description={skill.description}
+                    delay={index * 0.1}
+                  />
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
         </motion.div>
       </AnimatePresence>
 
@@ -172,7 +159,7 @@ const SkillsGrid: React.FC = () => {
             borderRadius: '20px',
             border: '1px solid rgba(100, 255, 218, 0.2)',
             textAlign: 'center',
-            backdropFilter: 'blur(20px)'
+            backdropFilter: 'blur(20px)',
           }}
         >
           <Box
@@ -180,7 +167,7 @@ const SkillsGrid: React.FC = () => {
               display: 'flex',
               justifyContent: 'space-around',
               flexWrap: 'wrap',
-              gap: { xs: 2, md: 4 }
+              gap: { xs: 2, md: 4 },
             }}
           >
             <Box>
@@ -197,15 +184,13 @@ const SkillsGrid: React.FC = () => {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    mb: 1
+                    mb: 1,
                   }}
                 >
                   {skillsData.reduce((total, category) => total + category.skills.length, 0)}+
                 </Box>
               </motion.div>
-              <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>
-                Technologies
-              </Box>
+              <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>Technologies</Box>
             </Box>
 
             <Box>
@@ -222,15 +207,13 @@ const SkillsGrid: React.FC = () => {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    mb: 1
+                    mb: 1,
                   }}
                 >
                   {skillsData.length}
                 </Box>
               </motion.div>
-              <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>
-                Categories
-              </Box>
+              <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>Categories</Box>
             </Box>
 
             <Box>
@@ -247,15 +230,13 @@ const SkillsGrid: React.FC = () => {
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
-                    mb: 1
+                    mb: 1,
                   }}
                 >
                   3+
                 </Box>
               </motion.div>
-              <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>
-                Years Experience
-              </Box>
+              <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>Years Experience</Box>
             </Box>
           </Box>
         </Box>

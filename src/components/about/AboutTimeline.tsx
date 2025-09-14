@@ -1,9 +1,10 @@
-// src/components/about/AboutTimeline/AboutTimeline.tsx
+// src/components/about/AboutTimeline.tsx
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Work, School, Code, VideoLibrary } from '@mui/icons-material';
-import AnimatedCard from '../../shared/AnimatedCard/AnimatedCard';
+import { AnimatedCard } from '../shared';
+
 
 interface TimelineItem {
   year: string;

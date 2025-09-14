@@ -1,11 +1,8 @@
-// src/components/about/AboutHero/AboutHero.tsx
+// src/components/about/AboutHero.tsx
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import AnimatedCard from '../../shared/AnimatedCard/AnimatedCard';
-import GradientText from '../../shared/GradientText/GradientText';
-import { fadeInLeft, fadeInRight } from '../../shared/animations/sharedAnimations';
-import ProfilePhoto from '../../shared/ProfilePhoto/ProfilePhoto';
+import { AnimatedCard, fadeInLeft,fadeInRight, GradientText, ProfilePhoto } from '../shared';
 
 const AboutHero: React.FC = () => {
   return (

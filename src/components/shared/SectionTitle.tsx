@@ -1,8 +1,9 @@
-// src/components/shared/SectionTitle/SectionTitle.tsx
+// src/components/shared/SectionTitle.tsx
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import GradientText from '../GradientText/GradientText';
+import GradientText from './GradientText';
+
 
 interface SectionTitleProps {
   title: string;

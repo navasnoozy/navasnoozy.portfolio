@@ -1,4 +1,4 @@
-// src/components/shared/animations/sharedAnimations.ts
+// src/components/shared/sharedAnimations.ts
 import { type Variants } from 'framer-motion';
 
 export const fadeInUp: Variants = {

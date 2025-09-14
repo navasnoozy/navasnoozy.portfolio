@@ -1,17 +1,17 @@
 // src/pages/AboutPage.tsx
 import React from 'react';
-import AnimatedSection from '../components/shared/AnimatedSection/AnimatedSection';
-import SectionTitle from '../components/shared/SectionTitle/SectionTitle';
-import AboutHero from '../components/about/AboutHero/AboutHero';
-import AboutTimeline from '../components/about/AboutTimeline/AboutTimeline';
-import AboutValues from '../components/about/AboutValues/AboutValues';
-import { fadeInUp, slideInFromBottom } from '../components/shared/animations/sharedAnimations';
+import AnimatedSection from '../components/shared/AnimatedSection';
+import SectionTitle from '../components/shared/SectionTitle';
+import AboutHero from '../components/about/AboutHero';
+import AboutTimeline from '../components/about/AboutTimeline';
+import AboutValues from '../components/about/AboutValues';
+import { fadeInUp, slideInFromBottom } from '../components/shared/sharedAnimations';
 
 const AboutPage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <AnimatedSection 
+      <AnimatedSection
         variants={fadeInUp}
         py={{ xs: 8, md: 12 }}
         minHeight="80vh"
@@ -21,7 +21,7 @@ const AboutPage: React.FC = () => {
       </AnimatedSection>
 
       {/* Timeline Section */}
-      <AnimatedSection 
+      <AnimatedSection
         variants={slideInFromBottom}
         py={{ xs: 8, md: 12 }}
         delay={0.2}
@@ -36,11 +36,7 @@ const AboutPage: React.FC = () => {
       </AnimatedSection>
 
       {/* Values Section */}
-      <AnimatedSection 
-        variants={fadeInUp}
-        py={{ xs: 8, md: 12 }}
-        delay={0.3}
-      >
+      <AnimatedSection variants={fadeInUp} py={{ xs: 8, md: 12 }} delay={0.3}>
         <SectionTitle
           title="Core Values"
           subtitle="The principles that guide my work and drive me to create meaningful, impactful solutions."

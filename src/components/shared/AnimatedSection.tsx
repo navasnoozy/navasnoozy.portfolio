@@ -1,4 +1,4 @@
-// src/components/shared/AnimatedSection/AnimatedSection.tsx
+// src/components/shared/AnimatedSection.tsx
 import { Box, Container } from '@mui/material';
 import { motion, useInView, type Variants } from 'framer-motion';
 import React, { useRef } from 'react';

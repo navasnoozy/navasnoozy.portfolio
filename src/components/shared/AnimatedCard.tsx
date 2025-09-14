@@ -1,4 +1,4 @@
-//src/components/shared/AnimatedCard/AnimatedCard.tsx
+//src/components/shared/AnimatedCard.tsx
 
 import React from 'react';
 import { Paper } from '@mui/material';

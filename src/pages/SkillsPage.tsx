@@ -1,15 +1,15 @@
 // src/pages/SkillsPage.tsx
 import React from 'react';
-import AnimatedSection from '../components/shared/AnimatedSection/AnimatedSection';
-import SectionTitle from '../components/shared/SectionTitle/SectionTitle';
-import SkillsGrid from '../components/skills/SkillsGrid/SkillsGrid';
-import { fadeInUp } from '../components/shared/animations/sharedAnimations';
+import AnimatedSection from '../components/shared/AnimatedSection';
+import SectionTitle from '../components/shared/SectionTitle';
+import SkillsGrid from '../components/skills/SkillsGrid';
+import { fadeInUp } from '../components/shared/sharedAnimations';
 
 const SkillsPage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <AnimatedSection 
+      <AnimatedSection
         variants={fadeInUp}
         py={{ xs: 8, md: 12 }}
         minHeight="50vh"
@@ -23,11 +23,7 @@ const SkillsPage: React.FC = () => {
       </AnimatedSection>
 
       {/* Skills Grid Section */}
-      <AnimatedSection 
-        variants={fadeInUp}
-        py={{ xs: 6, md: 10 }}
-        delay={0.3}
-      >
+      <AnimatedSection variants={fadeInUp} py={{ xs: 6, md: 10 }} delay={0.3}>
         <SkillsGrid />
       </AnimatedSection>
     </>

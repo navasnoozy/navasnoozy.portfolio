@@ -1,8 +1,8 @@
-// src/components/shared/ProfilePhoto/ProfilePhoto.tsx
+// src/components/shared/ProfilePhoto.tsx
 import React from 'react';
 import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import profilePhoto from '../../../assets/profilephoto/profilephoto.jpeg';
+import profilePhoto from '../../assets/profilephoto.jpeg';
 
 interface ProfilePhotoProps {
   size?: 'small' | 'medium' | 'large';

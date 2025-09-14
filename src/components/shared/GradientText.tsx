@@ -1,5 +1,5 @@
 
-// src/components/shared/GradientText/GradientText.tsx
+// src/components/shared/GradientText.tsx
 import React from 'react';
 import { Typography, type TypographyProps } from '@mui/material';
 import { motion } from 'framer-motion';
