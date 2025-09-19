@@ -5,15 +5,15 @@ import { motion } from 'framer-motion';
 import AnimatedSection from '../components/shared/AnimatedSection';
 import SectionTitle from '../components/shared/SectionTitle';
 import ContactForm from '../components/contact/ContactForm';
-import NeuralNetworkAnimation from '../components/contact/NeuralNetworkAnimation';
+import OrbitalNetworkAnimation from '../components/contact/OrbitalNetworkAnimation';
 import { AnimatedCard } from '../components/shared';
 import { fadeInUp, fadeInLeft, fadeInRight } from '../components/shared/sharedAnimations';
 import { Rocket, Speed, CheckCircle } from '@mui/icons-material';
+import Footer from '../components/Footer/Footer';
 
 const ContactPage: React.FC = () => {
   return (
     <>
-      {/* Hero Section with Title */}
       <AnimatedSection
         variants={fadeInUp}
         py={{ xs: 8, md: 12 }}
@@ -151,7 +151,7 @@ const ContactPage: React.FC = () => {
                       WebkitTextFillColor: 'transparent'
                     }}
                   >
-                    Connecting Ideas
+                    Connecting Through Networks
                   </Typography>
                   <Typography
                     sx={{
@@ -161,9 +161,9 @@ const ContactPage: React.FC = () => {
                       fontSize: '0.95rem'
                     }}
                   >
-                    Like a neural network, great projects emerge from meaningful connections
+                    Watch as connections flow through social networks, bringing ideas and people together
                   </Typography>
-                  <NeuralNetworkAnimation />
+                  <OrbitalNetworkAnimation />
                 </Box>
               </AnimatedCard>
             </motion.div>
@@ -292,6 +292,7 @@ const ContactPage: React.FC = () => {
           }
         }
       `}</style>
+      <Footer />
     </>
   );
 };

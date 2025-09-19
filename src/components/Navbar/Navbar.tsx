@@ -1,21 +1,21 @@
 // src/components/Navbar/Navbar.tsx
-import React, { useState, useEffect } from 'react';
+import { Close as CloseIcon, Menu as MenuIcon } from '@mui/icons-material';
 import {
   AppBar,
   Box,
+  Container,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
   useMediaQuery,
   useTheme,
-  Typography,
-  Container,
 } from '@mui/material';
-import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const navItems = [

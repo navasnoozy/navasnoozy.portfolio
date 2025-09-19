@@ -11,7 +11,6 @@ import {
   RssFeed
 } from '@mui/icons-material';
 import AnimatedSection from '../components/shared/AnimatedSection';
-import SectionTitle from '../components/shared/SectionTitle';
 import { fadeInUp } from '../components/shared/sharedAnimations';
 import ArticlesGrid from '../components/articles/ArticlesGrid';
 import GradientText from '../components/shared/GradientText';

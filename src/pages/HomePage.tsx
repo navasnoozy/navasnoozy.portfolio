@@ -1,6 +1,6 @@
 //src/pages/HomePage.tsx
 
-import { Box, Container, useTheme } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,16 +13,14 @@ import ScrollIndicator from '../components/ScrollIndicator/ScrollIndicator';
 import { createProjectsHandler, createResumeHandler } from '../utils/navigationHandlers';
 
 // Fonts: self-hosted via Fontsource
-import '@fontsource/anton';
 import '@fontsource/caveat/700.css';
-import { useTypingEffect } from '../components/homepage/useTypingEffect';
 import FloatingParticles from '../components/homepage/FloatingParticles';
-import { containerVariants } from '../components/homepage/homePageAnimations';
 import HeroSection from '../components/homepage/HeroSection';
+import { containerVariants } from '../components/homepage/homePageAnimations';
+import { useTypingEffect } from '../components/homepage/useTypingEffect';
 import { ProfilePhoto } from '../components/shared';
 
 const HomePage: React.FC = () => {
-  const theme = useTheme();
   const navigate = useNavigate();
   
   const words = ['NAVAS CK', 'DEVELOPER', 'VIDEO EDITOR', 'SALESMAN', 'TECH ENTHUSIAST'];

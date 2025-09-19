@@ -1,19 +1,18 @@
 // src/components/Footer/Footer.tsx
-import React from 'react';
-import { Box, Container, Typography, Link, Divider, Grid } from '@mui/material';
-import { motion } from 'framer-motion';
 import {
+  ArrowUpward,
   Email,
-  Phone,
-  LocationOn,
   GitHub,
-  LinkedIn,
-  Twitter,
-  YouTube,
   Instagram,
+  LinkedIn,
+  LocationOn,
+  Twitter,
   WhatsApp,
-  ArrowUpward
+  YouTube
 } from '@mui/icons-material';
+import { Box, Container, Divider, Grid, Link, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import GradientText from '../shared/GradientText';
 

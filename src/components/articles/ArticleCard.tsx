@@ -1,18 +1,17 @@
 // src/components/articles/ArticleCard.tsx
-import React, { useState } from 'react';
-import { Box, Typography, Chip, IconButton, Tooltip, Avatar } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  BookmarkBorder, 
+import {
   Bookmark,
-  Share,
-  Visibility,
-  ThumbUp,
-  Schedule,
+  BookmarkBorder,
   CalendarToday,
   Launch,
-  Article as ArticleIcon
+  Schedule,
+  Share,
+  ThumbUp,
+  Visibility
 } from '@mui/icons-material';
+import { Avatar, Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
 import type { Article } from '../../data/articlesData';
 import { AnimatedCard } from '../shared';
 
