@@ -24,9 +24,9 @@ const navItems = [
   { label: 'Resume', path: '/resume' },
   { label: 'Skills', path: '/skills' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Services', path: '/services' },
+  // { label: 'Services', path: '/services' },
   { label: 'Articles', path: '/articles' },
-  { label: 'Testimonials', path: '/testimonials' },
+  // { label: 'Testimonials', path: '/testimonials' },
   { label: 'Contact', path: '/contact' },
 ];
 

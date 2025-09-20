@@ -40,7 +40,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'nextjs',
         name: 'Next.js',
-        level: 90,
+        level: 80,
         icon: getIconByKey('nextjs'),
         category: 'Frontend',
         description: 'Full-stack React framework with SSR and static generation'
@@ -134,7 +134,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'mongodb',
         name: 'MongoDB',
-        level: 82,
+        level: 85,
         icon: getIconByKey('mongo'),
         category: 'Backend',
         description: 'NoSQL database with Mongoose ODM'
@@ -142,7 +142,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'postgresql',
         name: 'PostgreSQL',
-        level: 78,
+        level: 80,
         icon: getIconByKey('postgres'),
         category: 'Backend',
         description: 'Relational database with complex queries'
@@ -165,7 +165,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'redux',
         name: 'Redux',
-        level: 88,
+        level: 80,
         icon: getIconByKey('redux'),
         category: 'State',
         description: 'Predictable state container with Redux Toolkit'
@@ -188,7 +188,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'docker',
         name: 'Docker',
-        level: 75,
+        level: 90,
         icon: getIconByKey('docker'),
         category: 'DevOps',
         description: 'Containerization and microservices architecture'
@@ -196,7 +196,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'kubernetes',
         name: 'Kubernetes',
-        level: 65,
+        level: 75,
         icon: getIconByKey('k8s'),
         category: 'DevOps',
         description: 'Container orchestration and deployment'
@@ -212,7 +212,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'github',
         name: 'GitHub',
-        level: 92,
+        level: 95,
         icon: getIconByKey('github'),
         category: 'Tools',
         description: 'Repository hosting and CI/CD workflows'
@@ -220,7 +220,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'vite',
         name: 'Vite',
-        level: 88,
+        level: 90,
         icon: getIconByKey('vite'),
         category: 'Tools',
         description: 'Fast build tool and development server'

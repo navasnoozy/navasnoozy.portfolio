@@ -10,8 +10,10 @@ import {
   CalendarToday,
   Timer,
   Person,
-  ArrowForward
+  ArrowForward,
+  LinkedIn
 } from '@mui/icons-material';
+
 import type { Project, ProjectLink } from '../../data/projectsData';
 import { AnimatedCard } from '../shared';
 
@@ -32,6 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0, onClick }
       case 'live': return <Language />;
       case 'demo': return <Launch />;
       case 'video': return <PlayCircle />;
+      case 'linkedin': return <LinkedIn />;
       default: return <Launch />;
     }
   };
@@ -272,7 +275,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0, onClick }
                     sx={{
                       background: `${tech.color}20`,
                       color: tech.color,
-                      border: `1px solid ${tech.color}40`,
+                      border: `1px solid ${tech.color}20`,
                       fontWeight: 600,
                       fontSize: '0.75rem',
                       '&:hover': {

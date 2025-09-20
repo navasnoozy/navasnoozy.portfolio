@@ -16,7 +16,7 @@ const ProjectsPage: React.FC = () => {
       <AnimatedSection
         variants={fadeInUp}
         py={{ xs: 8, md: 12 }}
-        minHeight="40vh"
+        minHeight="30vh"
         background="linear-gradient(135deg, rgba(100, 255, 218, 0.03) 0%, rgba(168, 85, 247, 0.03) 100%)"
       >
         <Box sx={{ position: 'relative' }}>
@@ -50,7 +50,7 @@ const ProjectsPage: React.FC = () => {
 
           <SectionTitle
             title="My Projects"
-            subtitle="Explore a collection of my work spanning web development, mobile applications, and creative media. Each project represents a unique challenge solved with innovative solutions and modern technologies."
+            subtitle="Explore a collection of my work spanning web development and creative media. Each project represents a unique challenge solved with innovative solutions and modern technologies."
             centerAlign={true}
           />
 
@@ -60,7 +60,7 @@ const ProjectsPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -110,7 +110,7 @@ const ProjectsPage: React.FC = () => {
                   </Box>
                 </motion.div>
               ))}
-            </Box>
+            </Box> */}
           </motion.div>
         </Box>
       </AnimatedSection>
