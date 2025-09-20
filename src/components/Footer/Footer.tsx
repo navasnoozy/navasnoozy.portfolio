@@ -435,7 +435,7 @@ const Footer: React.FC = () => {
                 textAlign: { xs: 'center', md: 'left' }
               }}
             >
-              © {currentYear} Navas CK. All rights reserved. Built with ❤️ and React
+              © {currentYear} Navas CK. All rights reserved. Built with ❤️ Effort
             </Typography>
 
             {/* Scroll to Top Button */}
