@@ -1,5 +1,5 @@
 // src/components/contact/ContactForm.tsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   TextField,
@@ -10,9 +10,9 @@ import {
   Chip,
   Stack,
   InputAdornment,
-  LinearProgress
-} from '@mui/material';
-import { motion, AnimatePresence, type Variants } from 'framer-motion';
+  LinearProgress,
+} from "@mui/material";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import {
   Send,
   Person,
@@ -20,9 +20,9 @@ import {
   Subject,
   Message,
   CheckCircle,
-  Star
-} from '@mui/icons-material';
-import { AnimatedCard } from '../shared';
+  Star,
+} from "@mui/icons-material";
+import { AnimatedCard } from "../shared";
 
 interface FormData {
   name: string;
@@ -40,17 +40,29 @@ interface FormErrors {
   message?: string;
 }
 
-const budgetOptions = ['< $1K', '$1K - $5K', '$5K - $10K', '$10K+', "Let's discuss"];
-const timelineOptions = ['ASAP', '1-2 weeks', '1 month', '2-3 months', 'Flexible'];
+const budgetOptions = [
+  "< $1K",
+  "$1K - $5K",
+  "$5K - $10K",
+  "$10K+",
+  "Let's discuss",
+];
+const timelineOptions = [
+  "ASAP",
+  "1-2 weeks",
+  "1 month",
+  "2-3 months",
+  "Flexible",
+];
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    budget: '',
-    timeline: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    budget: "",
+    timeline: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -62,27 +74,27 @@ const ContactForm: React.FC = () => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = "Name is required";
     } else if (formData.name.length < 2) {
-      newErrors.name = 'Name must be at least 2 characters';
+      newErrors.name = "Name must be at least 2 characters";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
+      newErrors.email = "Invalid email format";
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
+      newErrors.subject = "Subject is required";
     } else if (formData.subject.length < 5) {
-      newErrors.subject = 'Subject must be at least 5 characters';
+      newErrors.subject = "Subject must be at least 5 characters";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = "Message is required";
     } else if (formData.message.length < 20) {
-      newErrors.message = 'Message must be at least 20 characters';
+      newErrors.message = "Message must be at least 20 characters";
     }
 
     setErrors(newErrors);
@@ -91,10 +103,10 @@ const ContactForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
@@ -106,57 +118,43 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
 
     // Simulate form submission with progress
-    await new Promise(resolve => setTimeout(resolve, 2500));
+    await new Promise((resolve) => setTimeout(resolve, 2500));
 
     setIsSubmitting(false);
     setShowSuccess(true);
     setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-      budget: '',
-      timeline: ''
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      budget: "",
+      timeline: "",
     });
   };
 
   const getFormProgress = () => {
-    const fields = ['name', 'email', 'subject', 'message'];
-    const completed = fields.filter(field => formData[field as keyof FormData].trim()).length;
+    const fields = ["name", "email", "subject", "message"];
+    const completed = fields.filter((field) =>
+      formData[field as keyof FormData].trim()
+    ).length;
     return (completed / fields.length) * 100;
   };
 
-  /**
-   * IMPORTANT:
-   * Instead of string easings like 'easeOut' which sometimes fail strict TS checks,
-   * use a cubic-bezier array (type-safe). Example curve below approximates easeOut.
-   * You can change to other bezier values to tweak feel.
-   */
+
   const easeOutBezier = [0.22, 1, 0.36, 1] as const;
 
   const inputVariants: Variants = {
     focused: {
       scale: 1.02,
-      transition: { duration: 0.2, ease: easeOutBezier }
+      transition: { duration: 0.2, ease: easeOutBezier },
     },
     unfocused: {
       scale: 1,
-      transition: { duration: 0.2, ease: easeOutBezier }
-    }
+      transition: { duration: 0.2, ease: easeOutBezier },
+    },
   };
 
-  const chipVariants: Variants = {
-    selected: {
-      scale: 1.05,
-      backgroundColor: '#64ffda',
-      color: '#000',
-      transition: { duration: 0.2, ease: easeOutBezier }
-    },
-    unselected: {
-      scale: 1,
-      transition: { duration: 0.2, ease: easeOutBezier }
-    }
-  };
+
 
   return (
     <>
@@ -164,23 +162,33 @@ const ContactForm: React.FC = () => {
         <Box component="form" onSubmit={handleSubmit}>
           {/* Header with Progress */}
           <Box sx={{ mb: 4 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                mb: 2,
+              }}
+            >
               <Typography
                 variant="h5"
                 sx={{
                   fontWeight: 700,
-                  background: 'linear-gradient(135deg, #64ffda 0%, #a855f7 100%)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
+                  background:
+                    "linear-gradient(135deg, #64ffda 0%, #a855f7 100%)",
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                 }}
               >
                 Let's Work Together
               </Typography>
 
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <Star sx={{ color: '#64ffda', fontSize: 20 }} />
-                <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Star sx={{ color: "#64ffda", fontSize: 20 }} />
+                <Typography
+                  sx={{ color: "rgba(255, 255, 255, 0.7)", fontSize: "0.9rem" }}
+                >
                   {Math.round(getFormProgress())}% Complete
                 </Typography>
               </Box>
@@ -194,29 +202,22 @@ const ContactForm: React.FC = () => {
                 sx={{
                   height: 6,
                   borderRadius: 3,
-                  backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                  '& .MuiLinearProgress-bar': {
-                    background: 'linear-gradient(90deg, #64ffda 0%, #a855f7 100%)',
+                  backgroundColor: "rgba(100, 255, 218, 0.1)",
+                  "& .MuiLinearProgress-bar": {
+                    background:
+                      "linear-gradient(90deg, #64ffda 0%, #a855f7 100%)",
                     borderRadius: 3,
-                  }
+                  },
                 }}
               />
             </Box>
-
-            <Typography sx={{
-              color: 'rgba(255, 255, 255, 0.6)',
-              fontSize: '0.95rem',
-              lineHeight: 1.6
-            }}>
-              Ready to bring your ideas to life? Fill out this form and I'll get back to you within 24 hours.
-            </Typography>
           </Box>
 
           {/* Name Field */}
           <motion.div
             variants={inputVariants}
-            animate={focusedField === 'name' ? 'focused' : 'unfocused'}
-            style={{ marginBottom: '24px' }}
+            animate={focusedField === "name" ? "focused" : "unfocused"}
+            style={{ marginBottom: "24px" }}
           >
             <TextField
               fullWidth
@@ -224,49 +225,49 @@ const ContactForm: React.FC = () => {
               label="Your Name"
               value={formData.name}
               onChange={handleChange}
-              onFocus={() => setFocusedField('name')}
+              onFocus={() => setFocusedField("name")}
               onBlur={() => setFocusedField(null)}
               error={!!errors.name}
               helperText={errors.name}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <Person sx={{ color: 'rgba(100, 255, 218, 0.5)' }} />
+                    <Person sx={{ color: "rgba(100, 255, 218, 0.5)" }} />
                   </InputAdornment>
-                )
+                ),
               }}
               sx={{
-                '& .MuiOutlinedInput-root': {
-                  transition: 'all 0.3s ease',
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                  '& fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.3)',
+                "& .MuiOutlinedInput-root": {
+                  transition: "all 0.3s ease",
+                  backgroundColor: "rgba(255, 255, 255, 0.02)",
+                  "& fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.3)",
                     borderWidth: 2,
                   },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.5)',
-                    boxShadow: '0 0 20px rgba(100, 255, 218, 0.1)',
+                  "&:hover fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.5)",
+                    boxShadow: "0 0 20px rgba(100, 255, 218, 0.1)",
                   },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#64ffda',
-                    boxShadow: '0 0 25px rgba(100, 255, 218, 0.2)',
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#64ffda",
+                    boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)",
                   },
-                  '& input': {
-                    color: 'white',
-                    fontSize: '1rem',
-                  }
+                  "& input": {
+                    color: "white",
+                    fontSize: "1rem",
+                  },
                 },
-                '& .MuiInputLabel-root': {
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  fontSize: '1rem',
-                  '&.Mui-focused': {
-                    color: '#64ffda'
-                  }
+                "& .MuiInputLabel-root": {
+                  color: "rgba(255, 255, 255, 0.7)",
+                  fontSize: "1rem",
+                  "&.Mui-focused": {
+                    color: "#64ffda",
+                  },
                 },
-                '& .MuiFormHelperText-root': {
-                  color: '#ff6b6b',
-                  fontSize: '0.85rem'
-                }
+                "& .MuiFormHelperText-root": {
+                  color: "#ff6b6b",
+                  fontSize: "0.85rem",
+                },
               }}
             />
           </motion.div>
@@ -274,8 +275,8 @@ const ContactForm: React.FC = () => {
           {/* Email Field */}
           <motion.div
             variants={inputVariants}
-            animate={focusedField === 'email' ? 'focused' : 'unfocused'}
-            style={{ marginBottom: '24px' }}
+            animate={focusedField === "email" ? "focused" : "unfocused"}
+            style={{ marginBottom: "24px" }}
           >
             <TextField
               fullWidth
@@ -284,49 +285,49 @@ const ContactForm: React.FC = () => {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              onFocus={() => setFocusedField('email')}
+              onFocus={() => setFocusedField("email")}
               onBlur={() => setFocusedField(null)}
               error={!!errors.email}
               helperText={errors.email}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <Email sx={{ color: 'rgba(100, 255, 218, 0.5)' }} />
+                    <Email sx={{ color: "rgba(100, 255, 218, 0.5)" }} />
                   </InputAdornment>
-                )
+                ),
               }}
               sx={{
-                '& .MuiOutlinedInput-root': {
-                  transition: 'all 0.3s ease',
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                  '& fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.3)',
+                "& .MuiOutlinedInput-root": {
+                  transition: "all 0.3s ease",
+                  backgroundColor: "rgba(255, 255, 255, 0.02)",
+                  "& fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.3)",
                     borderWidth: 2,
                   },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.5)',
-                    boxShadow: '0 0 20px rgba(100, 255, 218, 0.1)',
+                  "&:hover fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.5)",
+                    boxShadow: "0 0 20px rgba(100, 255, 218, 0.1)",
                   },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#64ffda',
-                    boxShadow: '0 0 25px rgba(100, 255, 218, 0.2)',
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#64ffda",
+                    boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)",
                   },
-                  '& input': {
-                    color: 'white',
-                    fontSize: '1rem',
-                  }
+                  "& input": {
+                    color: "white",
+                    fontSize: "1rem",
+                  },
                 },
-                '& .MuiInputLabel-root': {
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  fontSize: '1rem',
-                  '&.Mui-focused': {
-                    color: '#64ffda'
-                  }
+                "& .MuiInputLabel-root": {
+                  color: "rgba(255, 255, 255, 0.7)",
+                  fontSize: "1rem",
+                  "&.Mui-focused": {
+                    color: "#64ffda",
+                  },
                 },
-                '& .MuiFormHelperText-root': {
-                  color: '#ff6b6b',
-                  fontSize: '0.85rem'
-                }
+                "& .MuiFormHelperText-root": {
+                  color: "#ff6b6b",
+                  fontSize: "0.85rem",
+                },
               }}
             />
           </motion.div>
@@ -334,234 +335,137 @@ const ContactForm: React.FC = () => {
           {/* Subject Field */}
           <motion.div
             variants={inputVariants}
-            animate={focusedField === 'subject' ? 'focused' : 'unfocused'}
-            style={{ marginBottom: '24px' }}
+            animate={focusedField === "subject" ? "focused" : "unfocused"}
+            style={{ marginBottom: "24px" }}
           >
             <TextField
               fullWidth
               name="subject"
-              label="Project Subject"
+              label="Subject"
               value={formData.subject}
               onChange={handleChange}
-              onFocus={() => setFocusedField('subject')}
+              onFocus={() => setFocusedField("subject")}
               onBlur={() => setFocusedField(null)}
               error={!!errors.subject}
               helperText={errors.subject}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <Subject sx={{ color: 'rgba(100, 255, 218, 0.5)' }} />
+                    <Subject sx={{ color: "rgba(100, 255, 218, 0.5)" }} />
                   </InputAdornment>
-                )
+                ),
               }}
               sx={{
-                '& .MuiOutlinedInput-root': {
-                  transition: 'all 0.3s ease',
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                  '& fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.3)',
+                "& .MuiOutlinedInput-root": {
+                  transition: "all 0.3s ease",
+                  backgroundColor: "rgba(255, 255, 255, 0.02)",
+                  "& fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.3)",
                     borderWidth: 2,
                   },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.5)',
-                    boxShadow: '0 0 20px rgba(100, 255, 218, 0.1)',
+                  "&:hover fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.5)",
+                    boxShadow: "0 0 20px rgba(100, 255, 218, 0.1)",
                   },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#64ffda',
-                    boxShadow: '0 0 25px rgba(100, 255, 218, 0.2)',
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#64ffda",
+                    boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)",
                   },
-                  '& input': {
-                    color: 'white',
-                    fontSize: '1rem',
-                  }
+                  "& input": {
+                    color: "white",
+                    fontSize: "1rem",
+                  },
                 },
-                '& .MuiInputLabel-root': {
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  fontSize: '1rem',
-                  '&.Mui-focused': {
-                    color: '#64ffda'
-                  }
+                "& .MuiInputLabel-root": {
+                  color: "rgba(255, 255, 255, 0.7)",
+                  fontSize: "1rem",
+                  "&.Mui-focused": {
+                    color: "#64ffda",
+                  },
                 },
-                '& .MuiFormHelperText-root': {
-                  color: '#ff6b6b',
-                  fontSize: '0.85rem'
-                }
+                "& .MuiFormHelperText-root": {
+                  color: "#ff6b6b",
+                  fontSize: "0.85rem",
+                },
               }}
             />
           </motion.div>
 
-          {/* Budget Selection */}
-          <Box sx={{ mb: 3 }}>
-            <Typography sx={{
-              color: 'rgba(255, 255, 255, 0.8)',
-              fontSize: '1rem',
-              fontWeight: 600,
-              mb: 2
-            }}>
-              Project Budget (Optional)
-            </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-              {budgetOptions.map((budget) => (
-                <motion.div
-                  key={budget}
-                  variants={chipVariants}
-                  animate={formData.budget === budget ? 'selected' : 'unselected'}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Chip
-                    label={budget}
-                    onClick={() => setFormData(prev => ({
-                      ...prev,
-                      budget: prev.budget === budget ? '' : budget
-                    }))}
-                    sx={{
-                      backgroundColor: formData.budget === budget
-                        ? '#64ffda'
-                        : 'rgba(100, 255, 218, 0.1)',
-                      color: formData.budget === budget
-                        ? '#000'
-                        : 'rgba(255, 255, 255, 0.7)',
-                      border: `1px solid ${formData.budget === budget
-                        ? '#64ffda'
-                        : 'rgba(100, 255, 218, 0.3)'}`,
-                      cursor: 'pointer',
-                      fontSize: '0.9rem',
-                      fontWeight: 600,
-                      mb: 1,
-                      '&:hover': {
-                        backgroundColor: formData.budget === budget
-                          ? '#64ffda'
-                          : 'rgba(100, 255, 218, 0.2)',
-                        borderColor: '#64ffda',
-                      }
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </Stack>
-          </Box>
 
-          {/* Timeline Selection */}
-          <Box sx={{ mb: 4 }}>
-            <Typography sx={{
-              color: 'rgba(255, 255, 255, 0.8)',
-              fontSize: '1rem',
-              fontWeight: 600,
-              mb: 2
-            }}>
-              Project Timeline (Optional)
-            </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-              {timelineOptions.map((timeline) => (
-                <motion.div
-                  key={timeline}
-                  variants={chipVariants}
-                  animate={formData.timeline === timeline ? 'selected' : 'unselected'}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Chip
-                    label={timeline}
-                    onClick={() => setFormData(prev => ({
-                      ...prev,
-                      timeline: prev.timeline === timeline ? '' : timeline
-                    }))}
-                    sx={{
-                      backgroundColor: formData.timeline === timeline
-                        ? '#a855f7'
-                        : 'rgba(168, 85, 247, 0.1)',
-                      color: formData.timeline === timeline
-                        ? '#fff'
-                        : 'rgba(255, 255, 255, 0.7)',
-                      border: `1px solid ${formData.timeline === timeline
-                        ? '#a855f7'
-                        : 'rgba(168, 85, 247, 0.3)'}`,
-                      cursor: 'pointer',
-                      fontSize: '0.9rem',
-                      fontWeight: 600,
-                      mb: 1,
-                      '&:hover': {
-                        backgroundColor: formData.timeline === timeline
-                          ? '#a855f7'
-                          : 'rgba(168, 85, 247, 0.2)',
-                        borderColor: '#a855f7',
-                      }
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </Stack>
-          </Box>
+
 
           {/* Message Field */}
           <motion.div
             variants={inputVariants}
-            animate={focusedField === 'message' ? 'focused' : 'unfocused'}
-            style={{ marginBottom: '32px' }}
+            animate={focusedField === "message" ? "focused" : "unfocused"}
+            style={{ marginBottom: "32px" }}
           >
             <TextField
               fullWidth
               name="message"
-              label="Tell me about your project"
+              label="Tell me"
               multiline
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              onFocus={() => setFocusedField('message')}
+              onFocus={() => setFocusedField("message")}
               onBlur={() => setFocusedField(null)}
               error={!!errors.message}
-              helperText={errors.message || `${formData.message.length}/500 characters`}
+              helperText={
+                errors.message || `${formData.message.length}/500 characters`
+              }
               inputProps={{ maxLength: 500 }}
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ alignSelf: 'flex-start', mt: 1 }}>
-                    <Message sx={{ color: 'rgba(100, 255, 218, 0.5)' }} />
+                  <InputAdornment
+                    position="start"
+                    sx={{ alignSelf: "flex-start", mt: 1 }}
+                  >
+                    <Message sx={{ color: "rgba(100, 255, 218, 0.5)" }} />
                   </InputAdornment>
-                )
+                ),
               }}
               sx={{
-                '& .MuiOutlinedInput-root': {
-                  transition: 'all 0.3s ease',
-                  backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                  '& fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.3)',
+                "& .MuiOutlinedInput-root": {
+                  transition: "all 0.3s ease",
+                  backgroundColor: "rgba(255, 255, 255, 0.02)",
+                  "& fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.3)",
                     borderWidth: 2,
                   },
-                  '&:hover fieldset': {
-                    borderColor: 'rgba(100, 255, 218, 0.5)',
-                    boxShadow: '0 0 20px rgba(100, 255, 218, 0.1)',
+                  "&:hover fieldset": {
+                    borderColor: "rgba(100, 255, 218, 0.5)",
+                    boxShadow: "0 0 20px rgba(100, 255, 218, 0.1)",
                   },
-                  '&.Mui-focused fieldset': {
-                    borderColor: '#64ffda',
-                    boxShadow: '0 0 25px rgba(100, 255, 218, 0.2)',
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#64ffda",
+                    boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)",
                   },
-                  '& textarea': {
-                    color: 'white',
-                    fontSize: '1rem',
+                  "& textarea": {
+                    color: "white",
+                    fontSize: "1rem",
                     lineHeight: 1.6,
-                  }
+                  },
                 },
-                '& .MuiInputLabel-root': {
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  fontSize: '1rem',
-                  '&.Mui-focused': {
-                    color: '#64ffda'
-                  }
+                "& .MuiInputLabel-root": {
+                  color: "rgba(255, 255, 255, 0.7)",
+                  fontSize: "1rem",
+                  "&.Mui-focused": {
+                    color: "#64ffda",
+                  },
                 },
-                '& .MuiFormHelperText-root': {
-                  color: errors.message ? '#ff6b6b' : 'rgba(255, 255, 255, 0.5)',
-                  fontSize: '0.85rem'
-                }
+                "& .MuiFormHelperText-root": {
+                  color: errors.message
+                    ? "#ff6b6b"
+                    : "rgba(255, 255, 255, 0.5)",
+                  fontSize: "0.85rem",
+                },
               }}
             />
           </motion.div>
 
           {/* Submit Button */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Button
               type="submit"
               fullWidth
@@ -580,10 +484,10 @@ const ContactForm: React.FC = () => {
                         sx={{
                           width: 20,
                           height: 20,
-                          border: '2px solid rgba(0,0,0,0.3)',
-                          borderTop: '2px solid #000',
-                          borderRadius: '50%',
-                          animation: 'spin 1s linear infinite',
+                          border: "2px solid rgba(0,0,0,0.3)",
+                          borderTop: "2px solid #000",
+                          borderRadius: "50%",
+                          animation: "spin 1s linear infinite",
                         }}
                       />
                     </motion.div>
@@ -601,43 +505,44 @@ const ContactForm: React.FC = () => {
               }
               sx={{
                 py: 2.5,
-                fontSize: '1.1rem',
+                fontSize: "1.1rem",
                 fontWeight: 700,
                 background: isSubmitting
-                  ? 'rgba(100, 255, 218, 0.2)'
-                  : 'linear-gradient(135deg, #64ffda 0%, #06b6d4 100%)',
-                color: isSubmitting ? 'rgba(255, 255, 255, 0.5)' : '#000',
-                borderRadius: '16px',
-                textTransform: 'none',
+                  ? "rgba(100, 255, 218, 0.2)"
+                  : "linear-gradient(135deg, #64ffda 0%, #06b6d4 100%)",
+                color: isSubmitting ? "rgba(255, 255, 255, 0.5)" : "#000",
+                borderRadius: "16px",
+                textTransform: "none",
                 boxShadow: isSubmitting
-                  ? 'none'
-                  : '0 8px 25px rgba(100, 255, 218, 0.3)',
-                position: 'relative',
-                overflow: 'hidden',
-                '&::before': {
+                  ? "none"
+                  : "0 8px 25px rgba(100, 255, 218, 0.3)",
+                position: "relative",
+                overflow: "hidden",
+                "&::before": {
                   content: '""',
-                  position: 'absolute',
+                  position: "absolute",
                   top: 0,
-                  left: '-100%',
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-                  transition: 'left 0.6s ease',
+                  left: "-100%",
+                  width: "100%",
+                  height: "100%",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
+                  transition: "left 0.6s ease",
                 },
-                '&:hover': {
+                "&:hover": {
                   boxShadow: isSubmitting
-                    ? 'none'
-                    : '0 12px 35px rgba(100, 255, 218, 0.4)',
-                  '&::before': {
-                    left: '100%',
-                  }
+                    ? "none"
+                    : "0 12px 35px rgba(100, 255, 218, 0.4)",
+                  "&::before": {
+                    left: "100%",
+                  },
                 },
-                '&:disabled': {
-                  color: 'rgba(255, 255, 255, 0.5)'
-                }
+                "&:disabled": {
+                  color: "rgba(255, 255, 255, 0.5)",
+                },
               }}
             >
-              {isSubmitting ? 'Sending Your Message...' : 'Send Message'}
+              {isSubmitting ? "Sending Your Message..." : "Send Message"}
             </Button>
           </motion.div>
         </Box>
@@ -648,34 +553,35 @@ const ContactForm: React.FC = () => {
         open={showSuccess}
         autoHideDuration={6000}
         onClose={() => setShowSuccess(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
         <Alert
           onClose={() => setShowSuccess(false)}
           severity="success"
           icon={<CheckCircle />}
           sx={{
-            background: 'linear-gradient(135deg, rgba(100, 255, 218, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)',
-            border: '2px solid #64ffda',
-            color: '#64ffda',
-            fontSize: '1rem',
+            background:
+              "linear-gradient(135deg, rgba(100, 255, 218, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)",
+            border: "2px solid #64ffda",
+            color: "#64ffda",
+            fontSize: "1rem",
             fontWeight: 600,
-            borderRadius: '12px',
-            backdropFilter: 'blur(20px)',
-            '& .MuiAlert-icon': {
-              color: '#64ffda',
-              fontSize: '1.5rem'
+            borderRadius: "12px",
+            backdropFilter: "blur(20px)",
+            "& .MuiAlert-icon": {
+              color: "#64ffda",
+              fontSize: "1.5rem",
             },
-            '& .MuiAlert-action': {
-              color: '#64ffda'
-            }
+            "& .MuiAlert-action": {
+              color: "#64ffda",
+            },
           }}
         >
           <Box>
             <Typography sx={{ fontWeight: 700, mb: 0.5 }}>
               Message Sent Successfully! 🎉
             </Typography>
-            <Typography sx={{ fontSize: '0.9rem', opacity: 0.8 }}>
+            <Typography sx={{ fontSize: "0.9rem", opacity: 0.8 }}>
               I'll get back to you within 24 hours. Thanks for reaching out!
             </Typography>
           </Box>

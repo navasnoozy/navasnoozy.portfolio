@@ -21,7 +21,7 @@ const ContactPage: React.FC = () => {
       >
         <SectionTitle
           title="Let's Connect"
-          subtitle="Have a project in mind or just want to say hello? I'd love to hear from you!"
+          subtitle="Just want to say hello? I'd love to hear from you!"
           centerAlign={true}
         />
 
@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
               {
                 icon: <CheckCircle />,
                 title: '100% Reliable',
-                description: 'Committed to your success',
+                description: 'Committed to success',
                 color: '#06b6d4'
               }
             ].map((item, index) => (
@@ -238,7 +238,7 @@ const ContactPage: React.FC = () => {
                   mx: 'auto',
                 }}
               >
-                Whether it's a web application, mobile app, or creative project,
+                Whether it's a web application or creative project,
                 I'm here to help bring your vision to life.
               </Typography>
               

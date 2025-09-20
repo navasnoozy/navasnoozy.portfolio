@@ -73,120 +73,27 @@ export const articleCategories = [
 ];
 
 export const articlesData: Article[] = [
-  {
-    id: 'art-1',
-    title: 'Building Scalable React Applications with Next.js 14',
-    excerpt: 'Explore the latest features in Next.js 14 and learn how to build performant, SEO-friendly applications with App Router, Server Components, and more.',
-    category: 'technical',
-    tags: ['React', 'Next.js', 'TypeScript', 'Performance'],
-    author: {
-      name: 'Navas CK',
-      role: 'Full Stack Developer'
-    },
-    publishedDate: '2024-03-15',
-    readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800',
-    featured: true,
-    views: 1234,
-    likes: 89,
-    platform: 'Medium',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-  },
+ 
   {
     id: 'art-2',
-    title: 'The Art of Micro-Animations in Modern Web Design',
-    excerpt: 'Discover how subtle animations can dramatically improve user experience and engagement. Learn practical techniques with Framer Motion.',
-    category: 'design',
-    tags: ['UX', 'Animation', 'Framer Motion', 'Design'],
+    title: 'Seek for Best Practice',
+    excerpt: 'In the current landscape, writing a solution is not enough in coding, it also needs to be optimized, efficient, and aligned with best practices',
+    category: 'technical',
+    tags: ['Best practice','Cloudinary'],
     author: {
       name: 'Navas CK',
-      role: 'UI/UX Enthusiast'
+      role: 'Web Developer'
     },
     publishedDate: '2024-02-28',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800',
+    readTime: '1 min read',
+    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800',
     featured: true,
     views: 892,
     likes: 67,
-    platform: 'Dev.to',
+    platform: 'LinkedIn',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
   },
-  {
-    id: 'art-3',
-    title: 'From Salesman to Software Developer: My Journey',
-    excerpt: 'A personal story about transitioning careers, learning to code, and the challenges faced along the way to becoming a full-stack developer.',
-    category: 'career',
-    tags: ['Career', 'Personal Growth', 'Learning'],
-    author: {
-      name: 'Navas CK',
-      role: 'Developer'
-    },
-    publishedDate: '2024-01-20',
-    readTime: '10 min read',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800',
-    featured: false,
-    views: 2103,
-    likes: 156,
-    platform: 'LinkedIn',
-    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-  },
-  {
-    id: 'art-4',
-    title: 'Understanding React Server Components',
-    excerpt: 'Deep dive into React Server Components, their benefits, use cases, and how they change the way we think about React applications.',
-    category: 'technical',
-    tags: ['React', 'RSC', 'Performance', 'Architecture'],
-    author: {
-      name: 'Navas CK',
-      role: 'Full Stack Developer'
-    },
-    publishedDate: '2024-03-01',
-    readTime: '12 min read',
-    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800',
-    featured: false,
-    views: 567,
-    likes: 45,
-    platform: 'Personal',
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
-  },
-  {
-    id: 'art-5',
-    title: 'Mastering TypeScript: Advanced Patterns and Best Practices',
-    excerpt: 'Level up your TypeScript skills with advanced type patterns, utility types, and real-world examples for building robust applications.',
-    category: 'tutorials',
-    tags: ['TypeScript', 'JavaScript', 'Best Practices'],
-    author: {
-      name: 'Navas CK',
-      role: 'Full Stack Developer'
-    },
-    publishedDate: '2024-02-15',
-    readTime: '15 min read',
-    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800',
-    featured: true,
-    views: 1567,
-    likes: 124,
-    platform: 'Medium',
-    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
-  },
-  {
-    id: 'art-6',
-    title: 'The Psychology of Clean Code',
-    excerpt: 'Exploring the cognitive science behind readable code and how understanding human psychology can make you a better programmer.',
-    category: 'thoughts',
-    tags: ['Clean Code', 'Psychology', 'Best Practices'],
-    author: {
-      name: 'Navas CK',
-      role: 'Tech Enthusiast'
-    },
-    publishedDate: '2024-01-10',
-    readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800',
-    featured: false,
-    views: 789,
-    likes: 56,
-    platform: 'Dev.to',
-    gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
-  }
+  
 ];
 
 // Helper functions

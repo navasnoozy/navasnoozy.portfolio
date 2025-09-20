@@ -213,7 +213,7 @@ const Footer: React.FC = () => {
                   }}
                 >
                   Full-Stack Developer & Video Editor crafting digital experiences 
-                  with modern technologies. Let's build something amazing together!
+                  with modern technologies. 
                 </Typography>
                 
                 {/* Availability Status */}
@@ -308,9 +308,6 @@ const Footer: React.FC = () => {
                     Web Development
                   </Typography>
                   <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem' }}>
-                    Mobile Apps
-                  </Typography>
-                  <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem' }}>
                     Video Editing
                   </Typography>
                   <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem' }}>
@@ -358,14 +355,14 @@ const Footer: React.FC = () => {
                         '&:hover': { color: '#64ffda' }
                       }}
                     >
-                      navasck@example.com
+                      navasnoozy.dev@gmail.com
                     </Link>
                   </Box>
                   
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                     <WhatsApp sx={{ fontSize: 18, color: 'rgba(100, 255, 218, 0.6)' }} />
                     <Link
-                      href="https://wa.me/911234567890"
+                      href="https://wa.me/919207906906"
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -375,14 +372,14 @@ const Footer: React.FC = () => {
                         '&:hover': { color: '#64ffda' }
                       }}
                     >
-                      +91 123 456 7890
+                      +91 9207906906
                     </Link>
                   </Box>
                   
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                     <LocationOn sx={{ fontSize: 18, color: 'rgba(100, 255, 218, 0.6)' }} />
                     <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
-                      Kozhikode, Kerala, IN
+                      Malappuram, Kerala, IN
                     </Typography>
                   </Box>
                 </Box>
@@ -391,27 +388,27 @@ const Footer: React.FC = () => {
                 <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap' }}>
                   <SocialIcon
                     icon={<GitHub sx={{ fontSize: 20 }} />}
-                    href="https://github.com/navasck"
+                    href="https://github.com/navasnoozy"
                     label="GitHub"
                   />
                   <SocialIcon
                     icon={<LinkedIn sx={{ fontSize: 20 }} />}
-                    href="https://linkedin.com/in/navasck"
+                    href="https://linkedin.com/in/navasnoozy"
                     label="LinkedIn"
                   />
                   <SocialIcon
                     icon={<Twitter sx={{ fontSize: 20 }} />}
-                    href="https://twitter.com/navasck"
+                    href="https://twitter.com/_noozy"
                     label="Twitter"
                   />
                   <SocialIcon
                     icon={<YouTube sx={{ fontSize: 20 }} />}
-                    href="https://youtube.com/@navasck"
+                    href="https://youtube.com/noozytech"
                     label="YouTube"
                   />
                   <SocialIcon
                     icon={<Instagram sx={{ fontSize: 20 }} />}
-                    href="https://instagram.com/navasck"
+                    href="https://instagram.com/navasnoozy"
                     label="Instagram"
                   />
                 </Box>

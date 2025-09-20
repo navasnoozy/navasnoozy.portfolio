@@ -153,7 +153,7 @@ const ArticlesPage: React.FC = () => {
               >
                 Exploring technology, design, and everything in between. 
                 Join me as I share my journey, discoveries, and lessons learned 
-                in the ever-evolving world of software development.
+                in the ever-evolving world of software development and Video Editing.
               </Typography>
 
               {/* CTA Buttons */}
@@ -356,7 +356,7 @@ const ArticlesPage: React.FC = () => {
                 />
               </motion.div>
 
-              <Box
+              {/* <Box
                 sx={{
                   fontSize: { xs: '1.8rem', md: '2.5rem' },
                   fontWeight: 900,
@@ -368,9 +368,9 @@ const ArticlesPage: React.FC = () => {
                 }}
               >
                 Want to Write Together?
-              </Box>
+              </Box> */}
               
-              <Box
+              {/* <Box
                 sx={{
                   color: 'rgba(255, 255, 255, 0.8)',
                   fontSize: { xs: '1rem', md: '1.2rem' },
@@ -381,7 +381,7 @@ const ArticlesPage: React.FC = () => {
               >
                 I'm always excited to collaborate on technical articles, tutorials, 
                 and thought pieces. Let's share knowledge and inspire the dev community together!
-              </Box>
+              </Box> */}
               
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ display: 'inline-block' }}>
                 <Box
