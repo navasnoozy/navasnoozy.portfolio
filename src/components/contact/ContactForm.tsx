@@ -1,28 +1,27 @@
 // src/components/contact/ContactForm.tsx
-import React, { useState } from "react";
 import {
-  Box,
-  TextField,
-  Button,
-  Typography,
-  Snackbar,
+  CheckCircle,
+  Email,
+  Message,
+  Person,
+  Send,
+  Star,
+  Subject,
+} from "@mui/icons-material";
+import {
   Alert,
-  Chip,
-  Stack,
+  Box,
+  Button,
   InputAdornment,
   LinearProgress,
+  Snackbar,
+  TextField,
+  Typography,
 } from "@mui/material";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
-import {
-  Send,
-  Person,
-  Email,
-  Subject,
-  Message,
-  CheckCircle,
-  Star,
-} from "@mui/icons-material";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import React, { useState } from "react";
 import { AnimatedCard } from "../shared";
+import sendMail from "../../services/emailjs";
 
 interface FormData {
   name: string;
@@ -40,21 +39,6 @@ interface FormErrors {
   message?: string;
 }
 
-const budgetOptions = [
-  "< $1K",
-  "$1K - $5K",
-  "$5K - $10K",
-  "$10K+",
-  "Let's discuss",
-];
-const timelineOptions = [
-  "ASAP",
-  "1-2 weeks",
-  "1 month",
-  "2-3 months",
-  "Flexible",
-];
-
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -68,6 +52,7 @@ const ContactForm: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [mailError, setMailError] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const validateForm = (): boolean => {
@@ -110,26 +95,37 @@ const ContactForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
-    setIsSubmitting(true);
+    try {
+      setIsSubmitting(true);
 
-    // Simulate form submission with progress
-    await new Promise((resolve) => setTimeout(resolve, 2500));
+      const result = await sendMail(e.currentTarget);
 
-    setIsSubmitting(false);
-    setShowSuccess(true);
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-      budget: "",
-      timeline: "",
-    });
+      if (result.text === "OK") {
+        setIsSubmitting(false);
+        setShowSuccess(true);
+        setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        budget: "",
+        timeline: "",
+      });
+      }
+
+      
+    } catch (error) {
+      console.log(error);
+      setShowSuccess(false);
+      setMailError(true)
+    }finally{
+       setIsSubmitting(false);
+    }
   };
 
   const getFormProgress = () => {
@@ -139,7 +135,6 @@ const ContactForm: React.FC = () => {
     ).length;
     return (completed / fields.length) * 100;
   };
-
 
   const easeOutBezier = [0.22, 1, 0.36, 1] as const;
 
@@ -153,8 +148,6 @@ const ContactForm: React.FC = () => {
       transition: { duration: 0.2, ease: easeOutBezier },
     },
   };
-
-
 
   return (
     <>
@@ -391,9 +384,6 @@ const ContactForm: React.FC = () => {
             />
           </motion.div>
 
-
-
-
           {/* Message Field */}
           <motion.div
             variants={inputVariants}
@@ -583,6 +573,46 @@ const ContactForm: React.FC = () => {
             </Typography>
             <Typography sx={{ fontSize: "0.9rem", opacity: 0.8 }}>
               I'll get back to you within 24 hours. Thanks for reaching out!
+            </Typography>
+          </Box>
+        </Alert>
+      </Snackbar>
+
+            {/* Error mailing Snackbar */}
+      <Snackbar
+        open={mailError}
+        autoHideDuration={6000}
+        onClose={() => setMailError(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setShowSuccess(false)}
+          severity="success"
+          icon={<CheckCircle />}
+          sx={{
+            background:
+              "linear-gradient(135deg, rgba(100, 255, 218, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)",
+            border: "2px solid #64ffda",
+            color: "#64ffda",
+            fontSize: "1rem",
+            fontWeight: 600,
+            borderRadius: "12px",
+            backdropFilter: "blur(20px)",
+            "& .MuiAlert-icon": {
+              color: "#64ffda",
+              fontSize: "1.5rem",
+            },
+            "& .MuiAlert-action": {
+              color: "#64ffda",
+            },
+          }}
+        >
+          <Box>
+            <Typography sx={{ fontWeight: 700, mb: 0.5 }}>
+              Could not send mail
+            </Typography>
+            <Typography sx={{ fontSize: "0.9rem", opacity: 0.8 }}>
+              Try again
             </Typography>
           </Box>
         </Alert>

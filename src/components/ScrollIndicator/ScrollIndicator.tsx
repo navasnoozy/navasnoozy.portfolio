@@ -1,4 +1,4 @@
-//src/components/ScrollIndicator/ScrollIndicator.tsx
+// src/components/ScrollIndicator/ScrollIndicator.tsx
 
 import React from 'react';
 import { Typography } from '@mui/material';
