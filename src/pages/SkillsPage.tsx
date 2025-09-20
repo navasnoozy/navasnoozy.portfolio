@@ -12,7 +12,7 @@ const SkillsPage: React.FC = () => {
       <AnimatedSection
         variants={fadeInUp}
         py={{ xs: 8, md: 12 }}
-        minHeight="50vh"
+        minHeight="10vh"
         background="linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(20, 20, 30, 0.1) 100%)"
       >
         <SectionTitle

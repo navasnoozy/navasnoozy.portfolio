@@ -43,7 +43,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)',
+              background: 'linear-gradient(135deg, rgba(100, 255, 219, 0.47) 0%, rgba(169, 85, 247, 0.37) 100%)',
               borderRadius: '16px',
               border: '1px solid rgba(100, 255, 218, 0.2)',
             }}

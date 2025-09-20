@@ -12,7 +12,7 @@ const HeroSubtitle: React.FC = () => {
       <Typography
         sx={{
           fontSize: { xs: '1rem', md: '1.2rem', lg: '1.4rem' },
-          color: 'rgba(255, 255, 255, 0.7)',
+          color: 'rgba(255, 255, 255, 0.83)',
           mb: { xs: 4, md: 6 },
           maxWidth: '600px',
           lineHeight: 1.6,
@@ -20,7 +20,8 @@ const HeroSubtitle: React.FC = () => {
         }}
       >
         Passionate about creating innovative solutions through code, compelling visual stories through
-        video, and meaningful connections through technology. Let's build something amazing together.
+        video, and meaningful connections through technology.
+        I believe programming is a powerful tool for transforming ideas into reality.
       </Typography>
     </motion.div>
   );

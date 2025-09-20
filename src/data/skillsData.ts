@@ -48,7 +48,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'typescript',
         name: 'TypeScript',
-        level: 88,
+        level: 85,
         icon: getIconByKey('ts'),
         category: 'Frontend',
         description: 'Type-safe development with advanced TypeScript patterns'
@@ -56,7 +56,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'javascript',
         name: 'JavaScript',
-        level: 93,
+        level: 90,
         icon: getIconByKey('js'),
         category: 'Frontend',
         description: 'ES6+, async/await, and modern JavaScript features'
@@ -87,7 +87,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'tailwind',
         name: 'Tailwind CSS',
-        level: 92,
+        level: 95,
         icon: getIconByKey('tailwind'),
         category: 'Styling',
         description: 'Utility-first CSS framework for rapid UI development'
@@ -95,7 +95,7 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'mui',
         name: 'Material-UI',
-        level: 87,
+        level: 90,
         icon: getIconByKey('mui'),
         category: 'Styling',
         description: 'React component library with Material Design'
@@ -103,8 +103,16 @@ export const skillsData: SkillCategory[] = [
       {
         id: 'chakra',
         name: 'Chakra UI',
-        level: 85,
+        level: 90,
         icon: getIconByKey('chakra'),
+        category: 'Styling',
+        description: 'Modular and accessible component library'
+      },
+      {
+        id: 'radix',
+        name: 'Radix UI',
+        level: 75,
+        icon: getIconByKey('radix'),
         category: 'Styling',
         description: 'Modular and accessible component library'
       }
@@ -224,6 +232,22 @@ export const skillsData: SkillCategory[] = [
     color: '#ec4899',
     gradient: 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)',
     skills: [
+         {
+        id: 'digitalocean',
+        name: 'DigitalOcean',
+        level: 75,
+        icon: getIconByKey('do'),
+        category: 'Cloud',
+        description: 'Cloud infrastructure and droplets management'
+      },
+        {
+        id: 'aws',
+        name: 'Aws',
+        level: 50,
+        icon: getIconByKey('aws'),
+        category: 'Deployment',
+        description: 'Full-stack application deployment'
+      },
       {
         id: 'vercel',
         name: 'Vercel',
@@ -232,14 +256,7 @@ export const skillsData: SkillCategory[] = [
         category: 'Deployment',
         description: 'Frontend deployment and serverless functions'
       },
-      {
-        id: 'digitalocean',
-        name: 'DigitalOcean',
-        level: 75,
-        icon: getIconByKey('do'),
-        category: 'Cloud',
-        description: 'Cloud infrastructure and droplets management'
-      },
+   
       {
         id: 'render',
         name: 'Render',
@@ -247,7 +264,8 @@ export const skillsData: SkillCategory[] = [
         icon: getIconByKey('render'),
         category: 'Deployment',
         description: 'Full-stack application deployment'
-      }
+      },
+    
     ]
   }
 ];

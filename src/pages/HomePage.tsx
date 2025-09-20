@@ -14,7 +14,6 @@ import { createProjectsHandler, createResumeHandler } from '../utils/navigationH
 
 // Fonts: self-hosted via Fontsource
 import '@fontsource/caveat/700.css';
-import FloatingParticles from '../components/homepage/FloatingParticles';
 import HeroSection from '../components/homepage/HeroSection';
 import { containerVariants } from '../components/homepage/homePageAnimations';
 import { useTypingEffect } from '../components/homepage/useTypingEffect';
@@ -46,7 +45,6 @@ const HomePage: React.FC = () => {
         pt: { xs: 8, md: 0 },
       }}
     >
-      <FloatingParticles />
 
       <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
         <motion.div variants={containerVariants} initial="hidden" animate="visible">

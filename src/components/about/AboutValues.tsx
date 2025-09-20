@@ -60,7 +60,7 @@ const values: Value[] = [
     icon: <Verified />,
     title: 'Quality',
     description:
-      'Maintaining high standards in code quality, testing, and documentation.',
+      'Always following best practices to maintain high code quality.',
     color: '#64ffda',
   },
 ];

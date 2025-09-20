@@ -1,11 +1,10 @@
 // src/pages/AboutPage.tsx
 import React from 'react';
+import AboutHero from '../components/about/AboutHero';
+import AboutValues from '../components/about/AboutValues';
 import AnimatedSection from '../components/shared/AnimatedSection';
 import SectionTitle from '../components/shared/SectionTitle';
-import AboutHero from '../components/about/AboutHero';
-import AboutTimeline from '../components/about/AboutTimeline';
-import AboutValues from '../components/about/AboutValues';
-import { fadeInUp, slideInFromBottom } from '../components/shared/sharedAnimations';
+import { fadeInUp } from '../components/shared/sharedAnimations';
 
 const AboutPage: React.FC = () => {
   return (
@@ -21,7 +20,7 @@ const AboutPage: React.FC = () => {
       </AnimatedSection>
 
       {/* Timeline Section */}
-      <AnimatedSection
+      {/* <AnimatedSection
         variants={slideInFromBottom}
         py={{ xs: 8, md: 12 }}
         delay={0.2}
@@ -33,13 +32,13 @@ const AboutPage: React.FC = () => {
           centerAlign={true}
         />
         <AboutTimeline />
-      </AnimatedSection>
+      </AnimatedSection> */}
 
       {/* Values Section */}
       <AnimatedSection variants={fadeInUp} py={{ xs: 8, md: 12 }} delay={0.3}>
         <SectionTitle
           title="Core Values"
-          subtitle="The principles that guide my work and drive me to create meaningful, impactful solutions."
+          subtitle="“The principles that guide my work, keeping me curious and open to new challenges.”"
           centerAlign={true}
         />
         <AboutValues />

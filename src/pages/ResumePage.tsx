@@ -1,9 +1,12 @@
 //src/pages/ResumePage.tsx
 
-const ResumePage = () => {
-  return (
-    <div>ResumePage</div>
-  )
-}
+import { createResumeHandler } from "../utils/navigationHandlers";
 
-export default ResumePage
+const ResumePage = () => {
+  const handleResumeClick = createResumeHandler();
+
+  handleResumeClick();
+  return <div>ResumePage</div>;
+};
+
+export default ResumePage;

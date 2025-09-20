@@ -115,31 +115,46 @@ const SkillsGrid: React.FC = () => {
 
       {/* Skills Grid */}
       <AnimatePresence mode="wait">
-        <motion.div key={selectedCategory} variants={staggerContainer} initial="hidden" animate="visible" exit="hidden">
+        <motion.div 
+          key={selectedCategory} 
+          variants={staggerContainer} 
+          initial="hidden" 
+          animate="visible" 
+          exit="hidden"
+        >
           <Grid container spacing={{ xs: 2, md: 3 }}>
-            {filteredSkills.map((skill, index) => (
-              <Grid
-                key={`${selectedCategory}-${skill.id}`}
-                size={{ xs: 12, sm: 6, md: 4, lg: 3 }} // ✅ MUI v7 syntax
-              >
-                <motion.div
-                  variants={{
-                    hidden: { y: 50, opacity: 0 },
-                    visible: { y: 0, opacity: 1 },
-                  }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+            {filteredSkills.map((skill, index) => {
+              // Simple uniform delay - all cards appear with the same timing pattern
+              const animationDelay = (index % 8) * 0.05; // Only first 8 positions get delays, then it repeats
+              
+              return (
+                <Grid
+                  key={`${selectedCategory}-${skill.id}`}
+                  size={{ xs: 12, sm: 6, md: 4, lg: 3 }} // MUI v7 syntax
                 >
-                  <SkillCard
-                    name={skill.name}
-                    level={skill.level}
-                    icon={skill.icon}
-                    category={skill.category}
-                    description={skill.description}
-                    delay={index * 0.1}
-                  />
-                </motion.div>
-              </Grid>
-            ))}
+                  <motion.div
+                    variants={{
+                      hidden: { y: 20, opacity: 0 },
+                      visible: { y: 0, opacity: 1 },
+                    }}
+                    transition={{ 
+                      duration: 0.4,
+                      delay: animationDelay,
+                      ease: [0.25, 0.1, 0.25, 1]
+                    }}
+                  >
+                    <SkillCard
+                      name={skill.name}
+                      level={skill.level}
+                      icon={skill.icon}
+                      category={skill.category}
+                      description={skill.description}
+                      delay={animationDelay}
+                    />
+                  </motion.div>
+                </Grid>
+              );
+            })}
           </Grid>
         </motion.div>
       </AnimatePresence>
@@ -233,7 +248,7 @@ const SkillsGrid: React.FC = () => {
                     mb: 1,
                   }}
                 >
-                  3+
+                  1.5+
                 </Box>
               </motion.div>
               <Box sx={{ color: 'rgba(255, 255, 255, 0.7)', fontWeight: 600 }}>Years Experience</Box>

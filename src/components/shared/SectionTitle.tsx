@@ -72,7 +72,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
         <Typography
           variant="h6"
           sx={{
-            color: 'rgba(255, 255, 255, 0.7)',
+            color: 'rgba(255, 255, 255, 0.81)',
             fontWeight: 400,
             fontSize: { xs: '1rem', md: '1.2rem' },
             maxWidth: centerAlign ? 600 : 'none',
